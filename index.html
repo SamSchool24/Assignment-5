@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table id="table">
+            <tr>
+                <th>First Name</th>
+                <th>City</th>
+            </tr>
+        </table>
+    </body>
+    <script>
+        const table = document.getElementById('table');
+        fetch(`https://randomuser.me/api?results=5`).then(res => res.json()).then(data => {
+            for (let user of data.results){ 
+                table.innerHTML += `<tr> <td>${user.name.first}</td> <td>${user.location.city}</td> </tr>`;
+            }
+        });
+    </script>
+</html>
+
+
